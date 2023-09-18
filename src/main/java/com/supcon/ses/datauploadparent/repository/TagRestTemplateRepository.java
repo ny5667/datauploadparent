@@ -25,11 +25,10 @@ public class TagRestTemplateRepository {
 
     private final ObjectMapper objectMapper;
 
-    private final RestTemplateUtils restTemplateUtils;
+    private static final RestTemplateUtils restTemplateUtils = new RestTemplateUtils();
 
-    public TagRestTemplateRepository(ObjectMapper objectMapper, RestTemplateUtils restTemplateUtils) {
+    public TagRestTemplateRepository(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
-        this.restTemplateUtils = restTemplateUtils;
     }
 
     public List<TagVo> findAll(String ip, String port, List<String> tagNames) throws JsonProcessingException {
